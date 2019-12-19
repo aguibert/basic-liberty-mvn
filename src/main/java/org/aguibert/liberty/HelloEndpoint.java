@@ -8,8 +8,7 @@ import javax.ws.rs.Path;
 
 @Path("/")
 @ApplicationScoped
-@DeclareRoles("Administrator")
-@RolesAllowed("Administrator")
+@RolesAllowed("admin")
 public class HelloEndpoint {
 
     @GET
