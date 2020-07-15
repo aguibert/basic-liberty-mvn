@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<openliberty.version>19.0.0.12</openliberty.version>
+		<openliberty.version>20.0.0.7</openliberty.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -22,6 +22,12 @@
 			<type>pom</type>
 			<scope>provided</scope>
 		</dependency>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>8.0</version>
+      <scope>provided</scope>
+    </dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
@@ -30,7 +36,15 @@
 				<groupId>io.openliberty.tools</groupId>
 				<artifactId>liberty-maven-plugin</artifactId>
 				<version>3.1</version>
+        <configuration>
+          <libertyRuntimeVersion>${openliberty.version}</libertyRuntimeVersion>
+        </configuration>
 			</plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+      </plugin>
 		</plugins>
 	</build>
 </project>
